@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+     {% block body %}
+<br> 
+<br>
+<br> 
+<br>
+<br> 
+<br>
+<br> 
+<br>
+<hr class="my-5">
+
+    <h2 class="mb-5 font-weight-bold text-center">Suggestions</h2>
+  
+<section id="examples" class="text-center">
+
+  <!--Grid row-->
+  <div class="row">
+
+   {% for post in posts %}
+
+    <!--Grid column-->
+    <div class="col-lg-6 col-md-12 mb-4">
+
+        <div class="view overlay z-depth-1-half">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+        
+                      
+                    <div class="carousel-item active">
+                    <img class="d-block w-100" class="card-img-top" class="img-fluid" src="{{ asset(post.path)}}"  height="300px" alt="Card image cap">
+                    </div>
+                    
+                </div>
+            </div>
+
+            <a href=" {{path('show2')}}">
+              <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+
+      <h4 class="my-4 font-weight-bold">{{ post.title }}</h4>
+      <a href="{{ path('post_show', {'id': post.id}) }}" class="btn btn-primary">En savoir plus</a>
+    </div> 
+     
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+    
+
+    <hr class="my-5">
+</section>
+    
+{% endblock %}
+

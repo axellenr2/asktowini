@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<section id="gallery">
+
+            <!-- Heading -->
+            <h2 class="mb-5 font-weight-bold text-center">{{ post.title }}</h2>
+
+            <!--Grid row-->
+    <div class="row">
+
+                    <!--Grid column-->
+        <div class="col-lg-6 col-md-12 mb-4">
+            <!--Carousel Wrapper-->
+            <div id="carousel-example-2" class="carousel slide carousel-fade" data-ride="carousel">
+            <!--Slides-->
+                <div class="carousel-inner" role="listbox">
+                    
+                
+                        <div class="carousel-item active">
+                            <div class="view">
+                                <img class="d-block w-100" src="{{ asset(post.path)}}" alt="First slide">
+                                <div class="mask rgba-black-light"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive"></h3>
+                                
+                            </div>
+                        </div>
+                    
+
+                    {% for image in post.images %}
+                        <div class="carousel-item">
+                        <!--Mask color-->
+                            <div class="view">
+                                <img class="d-block w-100" src="{{ asset(image.path)}}">
+                                <div class="mask rgba-black-light"></div>
+                            </div>
+                            <div class="carousel-caption">
+                                <h3 class="h3-responsive"></h3>
+                                
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <!--/.Slides-->
+            <!--Controls-->
+                            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+            <!--/.Controls-->
+        </div>
+            <!--/.Carousel Wrapper-->
+
+
+            
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4">
+                            <!--Excerpt-->
+                                <a class="teal-text">
+                                    <h6 class="pb-1"><i class="fas fa-heart"></i><strong> {{ post.categorys.title }}</strong></h6>
+                                </a>
+                                <h4 class="mb-3"><strong></strong></h4>
+                                <p class="grey-text">{{ post.content | raw }} </p>
+                                <p>Crée le : {{post.datetime|date('m-d-Y')}}</p>         
+                    </div>
+    </div>
+
+</section>
+
+{% endblock %}

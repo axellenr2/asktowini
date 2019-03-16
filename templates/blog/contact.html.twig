@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+<!--Section: Gallery-->
+<br>
+<br>
+<br>
+        <hr class="my-5">
+
+        <!--Section: Contact-->
+<section id="contact">
+
+    <!-- Heading -->
+    <h2 class="mb-5 font-weight-bold text-center">Nous joindre</h2>
+
+    <!--Grid row-->
+    <div class="row">
+
+    <!--Grid column-->
+    <div class="col-lg-5 col-md-12">
+     {{ form_start(our_form) }}
+
+        {{form_row(our_form.email, {'label': 'Votre email :'})}}
+        {{form_row(our_form.message, {'label': 'Qu\'avez vous à nous dire ?'})}}
+       <div class="text-center mt-4">
+      <button type="submit" class="btn btn-yellow">Envoyer <i class="far fa-paper-planeml-1"></i></button>
+    </div>
+        
+       
+    
+
+        {{ form_end(our_form) }}
+    </div>
+<div class="col-lg-5 col-md-12">
+<!--Google map-->
+<div><img src="/img/maps.PNG" height="500px"></div>
+
+
+    </div>
+</div>
+   <br>
+   <br>
+</main>
+
+
+{% endblock %}

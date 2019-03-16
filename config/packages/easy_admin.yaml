@@ -1,0 +1,25 @@
+easy_admin:
+
+  entities:
+    Post:
+      class: App\Entity\Post
+      label: 'Post'
+      list:
+        fields: [{ property: 'title', label: 'Titre'}, { property: 'content', label: 'Contenu'},  { property: 'filename', type: 'image', base_path: '/uploads1/'},{property: 'categorys.title', label: 'Categorie'}, 'datetime']
+      form:
+        fields: [{ property: 'title', label: 'Titre'},{ property: 'content', label: 'Contenu'}, { property: 'images', type: 'collection', type_options: { entry_type: 'App\Form\ImagesType', by_reference: false }},  { property: 'imageFile', label: 'image principale', type: vich_image, base_path: '/uploads1/'}, {property: 'categorys', type: 'entity', type_options: { class: 'App\Entity\categorys', choice_label: 'title'}}]
+      new:
+        fields:  [{ property: 'title', label: 'Titre'},{ label: 'Contenu', property: 'content', type: 'fos_ckeditor'}, { property: 'images', type: 'collection', type_options: { entry_type: 'App\Form\ImagesType', by_reference: false }},  { property: 'imageFile',label: 'image principale', type: vich_image, base_path: '/uploads1/'},{property: 'categorys', type: 'entity', type_options: { class: 'App\Entity\categorys', choice_label: 'title'}}]
+      edit: 
+        fields:  [{ property: 'title', label: 'Titre'},{ label: 'Contenu', property: 'content', type: 'fos_ckeditor'}, { property: 'images',  type: 'collection', type_options: { entry_type: 'App\Form\ImagesType', by_reference: false }},  { property: 'imageFile',label: 'image principale', type: vich_image, base_path: '/uploads1/'},{property: 'categorys', type: 'entity', type_options: { class: 'App\Entity\categorys', choice_label: 'title'}}]
+    
+  site_name: 'Xarxa Cebrianenca'
+  design:
+    assets:
+        # all kinds of assets are supported and linked accordingly
+        css:
+            - 'https://bootswatch.com/4/lux/bootstrap.min.css'
+ 
+            
+
+     

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+        
+    <section id="Infos">
+    <br>
+    <br>
+        <h1> Mes informations personnel </h1>
+        <br>
+    <style>
+    p{
+        color: #aa66cc;
+    }
+    .t{
+        font-size: 20px; 
+    }
+    </style>
+<p class="t"> Mon email : </p> 
+<p>{{ app.user.getEmail() }} </p>
+<p class="t"> Mon nom : </p> 
+<p>{{ app.user.getUsername() }} </p>
+<p class="t"> Mon adresse : </p> 
+<p>{{ app.user.getAdresse() }} </p>
+
+
+
+{% endblock %}
+
